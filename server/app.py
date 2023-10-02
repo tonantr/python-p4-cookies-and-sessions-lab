@@ -24,7 +24,7 @@ def clear_session():
     session['page_views'] = 0
     return {'message': '200: Successfully cleared session data.'}, 200
 
-@app.route('/articles')
+@app.route('/articles', methods=['GET'])
 def index_articles():
     articles = [article.to_dict() for article in Article.query.all()]
     return jsonify(articles), 200
